@@ -1,0 +1,2 @@
+data,erro,onde_apareceu,vezes,altura_da_regra,regra_criada,teste_que_prova
+2026-11-17,cadastro aceitou e-mail sem arroba,exemplo/cadastro_quebrado.py,2,2 (máquina barra),cadastrar() precisa chamar validar_email(),exemplo/escada.py degrau3_regra

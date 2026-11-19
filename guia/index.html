@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Escada da confiança — seu agente só diz pronto depois de provar</title>
+<meta name="description" content="Você pede uma coisa para a IA, ela diz pronto, e você perde a tarde conferindo. Com a escada da confiança, o método da engenheira Lauren Tan, o seu agente só diz pronto depois de provar. Kit grátis para Claude Code e Codex.">
+<link rel="alternate" hreflang="pt-BR" href="https://inematds.github.io/escada-confianca/guia/">
+<link rel="alternate" hreflang="en" href="https://inematds.github.io/escada-confianca/guia/en/">
+<link rel="alternate" hreflang="es" href="https://inematds.github.io/escada-confianca/guia/es/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0c0c10; --bg2:#14141b; --card:#16161e; --line:#272730;
+    --txt:#e9e9ee; --mut:#9a9aa6; --amb:#E2A23B; --amb2:#f0c070; --sky:#38bdf8; --pro:#cbd5e1;
+    color-scheme:dark;
+  }
+  body.light{
+    --bg:#f6f7f9; --bg2:#eceef2; --card:#ffffff; --line:#e1e3ea;
+    --txt:#1a1a22; --mut:#5b5b68; --amb:#b9791d; --amb2:#a16207; --sky:#0369a1; --pro:#b45309;
+    color-scheme:light;
+  }
+  body.light .hero .glow{opacity:.5}
+  body.light pre{background:#0e0e14;color:#d6d6e0}
+  body.light pre .c{color:#8a8a98}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--txt);font:16px/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:Sora,sans-serif;line-height:1.15;margin:0}
+  a{color:var(--amb);text-decoration:none}
+  code,pre{font-family:"JetBrains Mono",monospace}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+  .mut{color:var(--mut)} .amb{color:var(--amb)}
+  .chip{display:inline-block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amb);font-weight:600;font-family:Sora}
+  nav{position:sticky;top:0;z-index:30;backdrop-filter:blur(12px);background:rgba(12,12,16,.78);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;gap:22px;height:60px}
+  nav .brand{display:flex;align-items:center;gap:8px;font-family:Sora;font-weight:800;letter-spacing:-.02em;color:var(--amb)}
+  nav .brand .emoji{font-size:1.25rem}
+  nav .sep{color:var(--mut);opacity:.45}
+  nav .inema{color:var(--sky);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .inema:hover{filter:brightness(1.15)}
+  nav .pro{color:var(--pro);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .pro:hover{filter:brightness(1.15)}
+  nav .clubpro{display:inline-flex;align-items:center;gap:6px}
+  nav .links{margin-left:auto;display:flex;align-items:center;gap:20px;font-size:.92rem}
+  nav .links a.sec{color:var(--mut)} nav .links a.sec:hover{color:var(--txt)}
+  .lang{display:inline-flex;gap:2px;font-family:Sora;font-size:.78rem}
+  .lang a{color:var(--mut);padding:.2em .45em;border-radius:6px} .lang a.on{color:var(--amb);background:rgba(226,162,59,.12)}
+  .tgl{background:var(--bg2);border:1px solid var(--line);color:var(--txt);width:38px;height:38px;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:1.05rem}
+  .tgl:hover{border-color:var(--amb)}
+  .btn{display:inline-block;background:var(--amb);color:#1a1206;font-weight:600;padding:.6em 1.05em;border-radius:10px;font-family:Sora}
+  .btn.ghost{background:transparent;color:var(--txt);border:1px solid var(--line)}
+  @media(max-width:1000px){nav .links a.sec[href="#origem"],nav .links a.sec[href="#comecar"]{display:none}}
+  @media(max-width:760px){nav .links a.sec{display:none}}
+  @media(max-width:520px){nav .wrap{gap:8px;padding:8px 14px;height:auto;flex-wrap:wrap} nav .links{gap:8px;margin-left:0;width:100%;justify-content:space-between} nav .btn{padding:.45em .7em;font-size:.82rem} .tgl{width:34px;height:34px}}
+  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+  .hero .glow{position:absolute;inset:-40% -20% auto auto;width:70%;height:600px;background:radial-gradient(closest-side,rgba(226,162,59,.22),transparent 70%);pointer-events:none}
+  .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:74px 22px}
+  .hero h1{font-size:clamp(2.2rem,5vw,3.5rem);font-weight:800;letter-spacing:-.025em}
+  .hero p.lead{font-size:1.18rem;color:var(--mut);margin:1.1em 0 1.6em;max-width:34ch}
+  .hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+  .hero figure{margin:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000}
+  .hero figure img{width:100%;height:auto;display:block}
+  .resumo{padding:38px 0 34px;border-bottom:1px solid var(--line)}
+  .resumo p{font-size:1.12rem;line-height:1.7;max-width:74ch;margin:.55em 0 0}
+  @media(max-width:780px){.hero .wrap{grid-template-columns:1fr;padding:48px 22px}}
+  section{padding:62px 0;border-bottom:1px solid var(--line)}
+  section h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;letter-spacing:-.02em}
+  section .sub{color:var(--mut);margin:.6em 0 2em;max-width:62ch}
+  .grid{display:grid;gap:16px}
+  .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)} .g2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:820px){.g3,.g4{grid-template-columns:1fr 1fr}}
+  @media(max-width:540px){.g2,.g3,.g4{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .card h3{font-size:1.05rem;margin-bottom:.4em}
+  .card p{color:var(--mut);font-size:.92rem;margin:0}
+  .num{display:inline-flex;width:30px;height:30px;align-items:center;justify-content:center;border-radius:8px;background:rgba(226,162,59,.14);color:var(--amb);font-family:Sora;font-weight:800;font-size:.9rem;margin-bottom:.7em}
+  .flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+  .flow span{background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:.45em .9em;font-size:.85rem;font-family:Sora;font-weight:600}
+  .flow .arr{color:var(--amb);border:none;background:none;padding:0 .1em}
+  pre{background:#0a0a0e;border:1px solid var(--line);border-radius:12px;padding:16px 18px;overflow:auto;font-size:.86rem;line-height:1.6;color:#d6d6e0}
+  pre .c{color:#6f6f7c} pre .k{color:var(--amb2)} pre .s{color:#9ece6a}
+  pre.prosa,pre.saida{white-space:pre-wrap;overflow-wrap:anywhere}
+  .step{display:grid;grid-template-columns:46px minmax(0,1fr);gap:16px;margin-bottom:26px}
+  .step>div,.card{min-width:0}
+  p code,li code,td code{overflow-wrap:anywhere}
+  .step .b{width:46px;height:46px;border-radius:12px;background:var(--amb);color:#1a1206;font-family:Sora;font-weight:800;font-size:1.25rem;display:flex;align-items:center;justify-content:center}
+  .step h3{font-size:1.12rem;margin-bottom:.3em}
+  .step p{color:var(--mut);margin:.2em 0 .7em}
+  footer{padding:46px 0;text-align:center;color:var(--mut);font-size:.9rem}
+  .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:.3em .8em;font-size:.78rem;color:var(--mut);margin:0 4px}
+  /* parte técnica isolada embaixo */
+  .techhead{background:var(--bg2);border-top:3px solid var(--amb);padding:58px 0 8px}
+  .techhead h2{font-family:Sora;margin:.3em 0 0}
+  .techzone{background:var(--bg2)}
+  .grade{margin:22px 0 0;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000}
+  .grade img{width:100%;display:block}
+  .placar{display:flex;align-items:baseline;gap:10px;margin:.2em 0 .5em;font-family:Sora;font-weight:800;font-size:1.6rem}
+  .placar small{font-size:.85rem;font-weight:600;color:var(--mut)}
+  .fontes{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+  .fontes li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+  .fontes li b{display:block;font-family:Sora;margin-bottom:.2em}
+  .fontes li span{color:var(--mut);font-size:.92rem}
+  .fontes a{overflow-wrap:anywhere}
+  .fala{border-left:3px solid var(--amb);padding:4px 0 4px 16px;margin:0 0 22px;max-width:70ch}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="brand" href="#top"><span class="emoji">🪜</span> Escada da confiança</a>
+  <span class="sep">|</span>
+  <span class="clubpro">
+    <a class="inema" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>
+    <span class="sep">-</span>
+    <a class="pro" href="https://inema.pro" target="_blank" rel="noopener">PRO</a>
+  </span>
+  <div class="links">
+    <a class="sec" href="#problema">O problema</a>
+    <a class="sec" href="#degraus">Os 3 degraus</a>
+    <a class="sec" href="#origem">De onde vem</a>
+    <a class="sec" href="#comecar">Comece amanhã</a>
+    <a class="sec" href="#tecnico">Kit (técnico)</a>
+    <span class="lang"><a class="on" href="./">PT</a><a href="en/">EN</a><a href="es/">ES</a></span>
+    <button class="tgl" id="themeToggle" aria-label="Alternar tema" title="Alternar tema">🌙</button>
+    <a class="btn" href="https://github.com/inematds/escada-confianca" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="glow"></div>
+  <div class="wrap">
+    <div>
+      <span class="chip">Kit grátis · Claude Code e Codex · método de Lauren Tan</span>
+      <h1>Seu agente só vai dizer pronto depois de provar. É o que faz a <span class="amb">escada da confiança</span>.</h1>
+      <p class="lead">Você pede uma coisa para a IA, ela diz pronto, e você perde a tarde conferindo. Uma engenheira da SpaceX acordou com 20 entregas prontas dos agentes dela. Com a escada da confiança, o seu agente só diz pronto depois de provar.</p>
+      <div class="cta">
+        <a class="btn" href="#problema">Entender em 5 minutos</a>
+        <a class="btn ghost" href="https://github.com/inematds/escada-confianca" target="_blank" rel="noopener">Ver no GitHub</a>
+      </div>
+    </div>
+    <figure><img src="assets/banner.jpg" alt="Escada da confiança — seu agente só diz pronto depois de provar. Escada dourada de três degraus com um robô humanoide no primeiro degrau e um selo de visto no alto"></figure>
+  </div>
+</header>
+
+<section id="resumo" class="resumo"><div class="wrap">
+  <span class="chip">Em resumo</span>
+  <p>Quando a IA diz “pronto” sem ter testado, quem confere é você, e isso come a tarde. A <strong>escada da confiança</strong> é um método em três degraus para o seu agente de programação (Claude Code ou Codex) só entregar com prova: ele usa o que fez como um usuário e mostra um recibo, passa numa avaliação com nota 10 de 10 e transforma cada erro repetido numa regra que o computador cobra sozinho. É para quem já usa agentes de IA no código e quer conferir menos. O kit traz textos prontos para colar no seu projeto e um exemplo que roda só com Python.</p>
+  <figure class="grade"><img src="assets/banner-grade.jpg" alt="Escada da confiança — o agente prova o que fez, recibo do que viu, nota de 0 a 10, juiz de outro modelo, o erro vira regra, exemplo que roda em Python" loading="lazy"></figure>
+</div></section>
+
+<section id="video"><div class="wrap">
+<p class="chip">Vídeo</p><h2>Entenda em 3 minutos</h2>
+<p></p>
+<div style="position:relative;width:100%;aspect-ratio:16/9;margin:1.5rem 0"><iframe style="position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:12px" src="https://www.youtube-nocookie.com/embed/V-7fJ1SjlpQ" title="Entenda em 3 minutos" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+
+<h3>2º vídeo — Caminho curto, caminho certo: como impedir que a IA estrague seu projeto</h3>
+<div style="position:relative;width:100%;aspect-ratio:16/9;margin:1.5rem 0"><iframe style="position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:12px" src="https://www.youtube-nocookie.com/embed/8GDrMRq15rc" title="Caminho curto, caminho certo: como impedir que a IA estrague seu projeto" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+</div></section>
+
+<section id="problema"><div class="wrap">
+  <span class="chip">O problema</span>
+  <h2>“Pronto” não é <span class="amb">prova</span></h2>
+  <p class="sub">O agente escreve o código, olha por cima e responde “feito”. Ninguém abriu a tela, ninguém tentou o caso estranho. A conferência sobra para você.</p>
+  <div class="grid g3">
+    <div class="card"><h3>🗣️ Ele diz, não mostra</h3><p>“Corrigi o cadastro” vem sem a tela aberta, sem o teste rodado, sem o que ele viu. Você não tem como saber se é verdade sem refazer o caminho.</p></div>
+    <div class="card"><h3>⏳ Você vira o conferente</h3><p>Cada entrega volta para a sua mesa: abrir o app, testar, achar o erro, explicar de novo. O tempo que a IA economizou some na revisão.</p></div>
+    <div class="card"><h3>🔁 O mesmo erro volta</h3><p>Você escreve “valida o e-mail” hoje, e semana que vem escreve de novo. Com um agente isso cansa. Com dez rodando ao mesmo tempo, não dá.</p></div>
+  </div>
+</div></section>
+
+<section id="degraus"><div class="wrap">
+  <span class="chip">O método</span>
+  <h2>Os três degraus da <span class="amb">escada da confiança</span></h2>
+  <p class="sub">Cada degrau tira um pedaço da conferência das suas mãos. Você sobe um de cada vez; o primeiro já muda o dia.</p>
+  <div class="grid g3">
+    <div class="card"><span class="num">1</span><h3>O agente prova</h3><p>Antes de dizer “pronto”, ele usa o que mudou como um usuário: abre a tela, repete o erro antes de corrigir, confere depois e entrega um <strong>recibo</strong> com o que fez e o que viu. Um mapa das telas do app mostra a ele onde fica cada função.</p></div>
+    <div class="card"><span class="num">2</span><h3>A prova ganha nota</h3><p>Uma <strong>avaliação</strong> (uma lista de 8 a 15 casos com a resposta certa) dá nota de 0 a 10. Quando a resposta é texto, quem dá a nota é um <strong>juiz</strong>: outro agente, de outro modelo, para o agente não dar razão a si mesmo. O agente corrige e roda de novo até 10 de 10.</p></div>
+    <div class="card"><span class="num">3</span><h3>O erro vira regra</h3><p>Erro que apareceu duas vezes não vira mais um pedido: vira uma <strong>regra que a máquina cobra</strong>, como um teste automático ou um verificador de código. Instrução o agente pode esquecer; teste ele não consegue pular.</p></div>
+  </div>
+
+  <h3 style="margin:42px 0 6px;font-size:1.2rem">Um exemplo, sem código: o cadastro</h3>
+  <p class="mut" style="max-width:66ch;margin:0 0 18px">O agente entregou um cadastro de usuários e disse “pronto”. Ele aceitava e-mail sem arroba e o mesmo e-mail duas vezes. O kit traz esse caso montado e passa a escada nele.</p>
+  <div class="grid g2">
+    <div class="card"><span class="chip">Antes</span><div class="placar">0 de 3 degraus <small>nota 3 de 10</small></div><p>Na prova, aceitou e-mail inválido e repetido. Na avaliação, errou 7 dos 10 casos. Na regra, não chamava a checagem de e-mail. Resultado: “não está pronto”.</p></div>
+    <div class="card"><span class="chip">Depois</span><div class="placar">3 de 3 degraus <small>nota 10 de 10</small></div><p>Recusa e-mail inválido, senha curta e cadastro repetido; acerta os 10 casos; a regra confirma que a checagem está lá. Resultado: “pronto com prova”.</p></div>
+  </div>
+  <p class="mut" style="margin-top:14px"><a href="#exemplos">Veja a saída de verdade ↓</a></p>
+</div></section>
+
+<section id="origem"><div class="wrap">
+  <span class="chip">De onde vem</span>
+  <h2>O método da engenheira <span class="amb">Lauren Tan</span></h2>
+  <p class="sub">Lauren Tan (@poteto) é engenheira de software na SpaceXAI, no time do Grok Bot, e antes trabalhou no Cursor. Ela chama a ideia de “trust ladder”, escada de confiança: quanto mais o agente prova, mais trabalho você pode deixar com ele.</p>
+  <p class="fala">Os números são dela, ditos no workshop: <strong>mil PRs num mês</strong> (PR é um pacote de mudança de código pronto para entrar no projeto), <strong>quase 800 nos 12 primeiros dias</strong> do mês seguinte e cerca de <strong>20 PRs já no main numa manhã</strong>, entregues pelos agentes enquanto ela dormia.</p>
+  <ul class="fontes">
+    <li><b>▶ Entrevista original (vídeo)</b><span>Workshop ao vivo na Maven, “How Cursor Turned AI Agents Into Better Engineers”, 12/08/2026, cerca de 60 min, em inglês.</span><br><a href="https://maven.com/p/e23d9c/how-cursor-turned-ai-agents-into-better-engineers" target="_blank" rel="noopener">maven.com/p/e23d9c/how-cursor-turned-ai-agents-into-better-engineers</a></li>
+    <li><b>▶ Cópia do workshop no YouTube</b><span>Não oficial, postada por terceiros.</span><br><a href="https://www.youtube.com/watch?v=Cmoh-yR-usA" target="_blank" rel="noopener">youtube.com/watch?v=Cmoh-yR-usA</a></li>
+    <li><b>pstack, o pacote de habilidades dela</b><span>As skills que ela usa com os agentes, publicadas pelo Cursor.</span><br><a href="https://github.com/cursor/plugins/tree/main/pstack" target="_blank" rel="noopener">github.com/cursor/plugins/tree/main/pstack</a></li>
+    <li><b>Palestra “All Code Is Slop (Except Mine)”</b><span>Na conferência AI Engineer, em inglês.</span><br><a href="https://www.youtube.com/watch?v=O_zcc6Xl12g" target="_blank" rel="noopener">youtube.com/watch?v=O_zcc6Xl12g</a></li>
+    <li><b>Perfil dela no X</b><span>@poteto</span><br><a href="https://x.com/poteto" target="_blank" rel="noopener">x.com/poteto</a></li>
+  </ul>
+  <p class="mut" style="margin-top:18px">O nome “escada da confiança”, o exemplo do cadastro, os modelos e a nota do juiz são do INEMA, adaptados em português para Claude Code e Codex.</p>
+</div></section>
+
+<section id="comecar"><div class="wrap">
+  <span class="chip">Plano de ação</span>
+  <h2>Comece <span class="amb">amanhã</span>, um degrau por vez</h2>
+  <p class="sub">Você não precisa montar tudo de uma vez. Cada passo abaixo já vale sozinho.</p>
+  <div class="grid g3">
+    <div class="card"><span class="num">1</span><h3>Peça o recibo</h3><p>Diga ao agente que ele só pode escrever “pronto” com o recibo junto: o que rodou, o que viu e o que não testou. O kit traz o texto pronto para colar.</p></div>
+    <div class="card"><span class="num">2</span><h3>Escreva 10 casos</h3><p>Pegue uma tarefa que se repete e anote 10 exemplos com a resposta certa, incluindo os que já deram errado. Essa é a sua avaliação.</p></div>
+    <div class="card"><span class="num">3</span><h3>Na segunda vez, vire regra</h3><p>Quando for escrever o mesmo comentário pela segunda vez, peça ao agente um teste que impeça aquele erro de voltar.</p></div>
+  </div>
+  <p class="mut" style="margin-top:18px">Quer instalar no seu projeto? <a href="#guia">Veja como usar ↓</a></p>
+</div></section>
+
+<div id="tecnico" class="techhead"><div class="wrap">
+  <span class="chip">Parte técnica</span>
+  <h2>O kit: <span class="amb">para quem quer instalar no seu projeto</span></h2>
+  <p class="sub">Daqui para baixo é a parte técnica: os arquivos do kit, os comandos e o exemplo rodando. Você <strong>não precisa</strong> desta parte para entender o que está acima.</p>
+</div></div>
+
+<div class="techzone">
+<section id="oque"><div class="wrap">
+  <span class="chip">O que é</span>
+  <h2>O que vem no kit</h2>
+  <p class="sub">Textos em Markdown para o seu agente ler, um registro em CSV e um exemplo em Python. Nada para instalar além do Python, e só se você quiser rodar o exemplo.</p>
+  <div class="grid g3">
+    <div class="card"><h3>🧾 Degrau 1 · prova</h3><p><code>kit/degrau1-prova/SKILL.md</code>: a skill “provar antes de dizer pronto”, com o modelo de RECIBO. <code>mapa-de-telas.md</code>: tabela de onde fica cada função do app e como saber que funcionou.</p></div>
+    <div class="card"><h3>📊 Degrau 2 · nota</h3><p><code>kit/degrau2-nota/avaliacao.md</code>: como montar a avaliação em 4 passos e o pedido de repetir até 10/10. <code>juiz.md</code>: o prompt do juiz com a rubrica de 10 itens e resposta em JSON.</p></div>
+    <div class="card"><h3>🧱 Degrau 3 · regra</h3><p><code>kit/degrau3-regra/erros-viram-regra.md</code>: a escada de regras (do erro que nem consegue existir até o comentário de revisão) e a rotina de 5 minutos. <code>registro-de-erros.csv</code>: onde anotar cada erro.</p></div>
+    <div class="card"><h3>📌 Bloco para colar</h3><p><code>kit/AGENTS-escada.md</code>: os três degraus em um bloco para o <code>CLAUDE.md</code> (Claude Code) ou o <code>AGENTS.md</code> (Codex) do seu projeto.</p></div>
+    <div class="card"><h3>🐍 Exemplo que roda</h3><p><code>exemplo/escada.py</code> passa os três degraus em dois cadastros: <code>cadastro_quebrado.py</code> (o que o agente entregou) e <code>cadastro_corrigido.py</code> (depois da escada).</p></div>
+    <div class="card"><h3>✅ Testes</h3><p><code>tests/test_escada.py</code>: 3 testes que confirmam que o quebrado reprova, o corrigido passa com 10/10 e que os arquivos do kit estão todos lá.</p></div>
+  </div>
+</div></section>
+
+<section id="fluxo"><div class="wrap">
+  <span class="chip">Como funciona</span>
+  <h2>Do pedido ao “pronto com prova”</h2>
+  <p class="sub">O bloco no <code>CLAUDE.md</code>/<code>AGENTS.md</code> faz o agente passar por estas etapas antes de responder. No degrau 3 entram o <em>lint</em> (verificador automático de código) e os testes do seu projeto. O exemplo em Python faz o mesmo de forma automática e sai com código 0 só se os três degraus passarem.</p>
+  <div class="flow">
+    <span>Seu pedido</span><span class="arr">→</span>
+    <span>O agente faz</span><span class="arr">→</span>
+    <span>1 · Prova + recibo</span><span class="arr">→</span>
+    <span>2 · Avaliação até 10/10</span><span class="arr">→</span>
+    <span>3 · Verificador de código e testes passam</span><span class="arr">→</span>
+    <span>Pronto com prova</span>
+  </div>
+</div></section>
+
+<section id="pre"><div class="wrap">
+  <span class="chip">Pré-requisitos</span>
+  <h2>O que você precisa</h2>
+  <p class="sub">Para ler e colar o kit, só o repositório. Para rodar o exemplo, Python 3.9 ou mais novo, sem nenhuma biblioteca extra.</p>
+  <div class="grid g3">
+    <div class="card"><h3>Python 3.9+</h3><p>Só a biblioteca padrão. Confira a versão:</p><pre><span class="k">python3 --version</span></pre></div>
+    <div class="card"><h3>Git</h3><p>Para baixar o kit (ou baixe o ZIP pelo GitHub).</p><pre><span class="k">git --version</span></pre></div>
+    <div class="card"><h3>Claude Code ou Codex</h3><p>O agente que vai ler o bloco e a skill no seu projeto. Qualquer um dos dois serve.</p></div>
+  </div>
+</div></section>
+
+<section id="guia"><div class="wrap">
+  <span class="chip">Guia de uso · passo a passo</span>
+  <h2>Do zero ao seu projeto em 7 passos</h2>
+  <p class="sub">Os passos 1 a 3 mostram a escada funcionando no exemplo. Os passos 4 a 7 levam o kit para o seu projeto. Troque <code>../seu-projeto</code> pelo caminho da sua pasta.</p>
+
+  <div class="step"><div class="b">1</div><div>
+    <h3>Baixe o kit</h3>
+    <p>Clone o repositório e entre na pasta.</p>
+<pre><span class="k">git clone https://github.com/inematds/escada-confianca.git</span>
+<span class="k">cd escada-confianca</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">2</div><div>
+    <h3>Veja a escada reprovar o cadastro quebrado</h3>
+    <p>O script mostra o recibo, a nota e a regra de cada degrau, e sai com código 1.</p>
+<pre><span class="k">python3 exemplo/escada.py cadastro_quebrado</span>
+<span class="c"># ... "nota": 3 ...</span>
+<span class="c"># NÃO está pronto — 0/3 degraus</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">3</div><div>
+    <h3>Veja o corrigido passar e rode os testes</h3>
+    <p>O corrigido passa nos três degraus e sai com código 0.</p>
+<pre><span class="k">python3 exemplo/escada.py cadastro_corrigido</span>
+<span class="c"># PRONTO com prova — 3/3 degraus</span>
+<span class="k">python3 -m unittest discover -s tests -v</span>
+<span class="c"># Ran 3 tests ... OK</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">4</div><div>
+    <h3>Cole o bloco no arquivo de instruções do agente</h3>
+    <p>Acrescenta a parte “Antes de dizer pronto” ao <code>CLAUDE.md</code> (Claude Code) ou ao <code>AGENTS.md</code> (Codex). Rode uma vez só (rodar de novo duplica o bloco) e confira com <code>grep</code>. Depois abra o arquivo e troque os comandos entre <code>&lt; &gt;</code> pelos do seu projeto, por exemplo <code>&lt;lint&gt; &amp;&amp; &lt;testes&gt;</code> vira <code>ruff check . &amp;&amp; pytest</code> num projeto Python.</p>
+<pre><span class="c"># Claude Code</span>
+<span class="k">sed -n '/^## Antes de dizer/,$p' kit/AGENTS-escada.md >> ../seu-projeto/CLAUDE.md</span>
+<span class="c"># Codex</span>
+<span class="k">sed -n '/^## Antes de dizer/,$p' kit/AGENTS-escada.md >> ../seu-projeto/AGENTS.md</span>
+<span class="c"># conferir (deve aparecer uma linha só)</span>
+<span class="k">grep -n "Antes de dizer" ../seu-projeto/CLAUDE.md</span>  <span class="c"># ou ../seu-projeto/AGENTS.md</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">5</div><div>
+    <h3>Leve o mapa de telas e o registro de erros</h3>
+    <p>O bloco espera os dois arquivos em <code>docs/</code>. Depois peça ao agente para completar o mapa com o texto que está no próprio <code>mapa-de-telas.md</code>. No Claude Code, a skill do degrau 1 também pode entrar como skill do projeto.</p>
+<pre><span class="k">mkdir -p ../seu-projeto/docs</span>
+<span class="k">cp kit/degrau1-prova/mapa-de-telas.md kit/degrau3-regra/registro-de-erros.csv ../seu-projeto/docs/</span>
+<span class="c"># opcional, Claude Code: skill "provar-antes-de-pronto"</span>
+<span class="k">mkdir -p ../seu-projeto/.claude/skills/provar-antes-de-pronto</span>
+<span class="k">cp kit/degrau1-prova/SKILL.md ../seu-projeto/.claude/skills/provar-antes-de-pronto/</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">6</div><div>
+    <h3>Monte a sua avaliação (degrau 2)</h3>
+    <p>Siga <code>kit/degrau2-nota/avaliacao.md</code>: escolha uma tarefa, escreva 8 a 15 casos (a lista <code>CASOS</code> em <code>exemplo/escada.py</code> é um modelo) e peça ao agente as voltas até 10/10. Para resposta em texto, rode <code>kit/degrau2-nota/juiz.md</code> num modelo diferente do que fez o trabalho.</p>
+<pre class="prosa"><span class="c"># o pedido do loop, em kit/degrau2-nota/avaliacao.md:</span>
+<span class="s">"Rode &lt;comando da avaliação&gt;. Enquanto a nota for menor que 10, leia os casos
+que falharam, corrija a causa (não o caso) e rode de novo. Pare em 10/10
+ou depois de 5 voltas, e me mostre a nota de cada volta."</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">7</div><div>
+    <h3>Quando um erro repetir, transforme em regra (degrau 3)</h3>
+    <p>“Lint” é o verificador automático de código; “CI” são os testes que rodam sozinhos a cada envio ao GitHub. Anote o erro em <code>docs/registro-de-erros.csv</code> e use o pedido de <code>kit/degrau3-regra/erros-viram-regra.md</code>. No exemplo, a regra é a função <code>degrau3_regra</code>, que lê o código e reprova o <code>cadastrar</code> que não chama <code>validar_email</code>.</p>
+<pre class="prosa"><span class="s">"Este erro já apareceu: &lt;erro&gt;. Não corrija só este caso. Proponha a regra
+mais alta possível (tipo, lint, teste ou CI) que impeça o erro de voltar,
+escreva a regra com um teste que falha no código antigo e passa no novo,
+e rode tudo."</span></pre>
+  </div></div>
+</div></section>
+
+<section id="exemplos"><div class="wrap">
+  <span class="chip">Exemplos</span>
+  <h2>A saída de verdade do exemplo</h2>
+  <p class="sub">Trechos da saída de <code>exemplo/escada.py</code>, resumidos: o programa imprime o JSON completo, indentado em várias linhas; aqui ficaram só os campos principais e a última linha, que sai igual.</p>
+  <div class="grid g2">
+    <div class="card"><h3>cadastro_quebrado</h3>
+<pre class="saida"><span class="c">{"degrau": 2, "passou": false, "nota": 3,</span>
+<span class="c"> "erros": ["e-mail sem arroba", "e-mail vazio",</span>
+<span class="c">   "senha curta", "e-mail repetido", "maiúscula repetida",</span>
+<span class="c">   "domínio sem ponto", "espaço no e-mail"]}</span>
+<span class="c">{"degrau": 3, "passou": false,</span>
+<span class="c"> "regra": "cadastrar() precisa chamar validar_email() — REPROVADO"}</span>
+<span class="k">NÃO está pronto — 0/3 degraus</span></pre></div>
+    <div class="card"><h3>cadastro_corrigido</h3>
+<pre class="saida"><span class="c">{"acao": "cadastrar o mesmo e-mail de novo",</span>
+<span class="c"> "viu": {"ok": false, "erro": "e-mail já cadastrado"}}</span>
+<span class="c">{"degrau": 2, "passou": true, "nota": 10, "erros": []}</span>
+<span class="c">{"degrau": 3, "passou": true,</span>
+<span class="c"> "regra": "cadastrar() precisa chamar validar_email()"}</span>
+<span class="k">PRONTO com prova — 3/3 degraus</span></pre></div>
+  </div>
+</div></section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="pill">Python 3</div><div class="pill">Claude Code</div><div class="pill">Codex</div><div class="pill">MIT</div>
+    <p style="margin-top:18px">Escada da confiança · v1.0.0 · método de <a href="#origem">Lauren Tan</a> ·
+      <a href="https://github.com/inematds/escada-confianca">inematds/escada-confianca</a> ·
+      <a href="https://inema.club">INEMA.CLUB</a></p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var KEY='escada-confianca-theme';
+    var b=document.body, t=document.getElementById('themeToggle');
+    try{ if(localStorage.getItem(KEY)==='light'){ b.classList.add('light'); t.textContent='☀️'; } }catch(e){}
+    t.addEventListener('click',function(){
+      var light=b.classList.toggle('light');
+      t.textContent=light?'☀️':'🌙';
+      try{ localStorage.setItem(KEY, light?'light':'dark'); }catch(e){}
+    });
+  })();
+</script>
+</body>
+</html>
