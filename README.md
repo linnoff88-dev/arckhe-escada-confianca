@@ -1,4 +1,4 @@
-﻿# ðŸªœ Escada da confianÃ§a
+# ðŸªœ Escada da confianÃ§a
 
 <div align="center">
   <img src="capa/logo.svg" alt="Arckhé AI" height="48" />
@@ -10,7 +10,7 @@
 
 ðŸŽ¬ VÃ­deo 2: https://www.youtube.com/watch?v=8GDrMRq15rc
 
-[![Escada da confianÃ§a â€” seu agente sÃ³ diz pronto depois de provar](guia/assets/banner.jpg)](https://inematds.github.io/escada-confianca/guia/)
+[![Escada da confianÃ§a â€” seu agente sÃ³ diz pronto depois de provar](guia/assets/banner.jpg)](https://linnoff88-dev.github.io/
 
 **ðŸ‡§ðŸ‡· [PortuguÃªs](README.md) Â· ðŸ‡ºðŸ‡¸ [English](README.en.md) Â· ðŸ‡ªðŸ‡¸ [EspaÃ±ol](README.es.md)**
 
@@ -22,7 +22,7 @@ Quando a IA diz â€œprontoâ€ sem ter testado, quem confere Ã© vocÃª,
 
 ## ðŸ“– Guia de uso
 
-Guia completo (landing + passo a passo): **https://inematds.github.io/escada-confianca/guia/**
+Guia completo (landing + passo a passo): **https://linnoff88-dev.github.io/
 
 ## O kit
 
@@ -50,7 +50,7 @@ O mÃ©todo Ã© da **Lauren Tan** (@poteto), engenheira de software na SpaceXAI
 - Palestra "All Code Is Slop (Except Mine)" (AI Engineer): https://www.youtube.com/watch?v=O_zcc6Xl12g
 - Perfil: https://x.com/poteto
 
-Detalhes em [CREDITOS.md](CREDITOS.md). LicenÃ§a MIT. Feito pelo [INEMA.CLUB](https://inema.club).
+Detalhes em [CREDITOS.md](CREDITOS.md). LicenÃ§a MIT. Feito pelo [ARCKHÉ AI](https://ARCKHÉ AI).
 
 ---
 

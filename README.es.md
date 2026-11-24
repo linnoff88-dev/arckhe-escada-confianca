@@ -4,7 +4,7 @@
 
 🎬 2.º video: https://www.youtube.com/watch?v=8GDrMRq15rc
 
-[![Escalera de la confianza — tu agente solo dice listo después de probarlo](guia/assets/banner-es.jpg)](https://inematds.github.io/escada-confianca/guia/es/)
+[![Escalera de la confianza — tu agente solo dice listo después de probarlo](guia/assets/banner-es.jpg)](https://linnoff88-dev.github.io/
 
 **🇧🇷 [Português](README.md) · 🇺🇸 [English](README.en.md) · 🇪🇸 [Español](README.es.md)**
 
@@ -16,7 +16,7 @@ Cuando la IA dice “listo” sin haber probado, quien revisa eres tú, y eso se
 
 ## 📖 Guía de uso
 
-Guía completa (landing + paso a paso): **https://inematds.github.io/escada-confianca/guia/es/**
+Guía completa (landing + paso a paso): **https://linnoff88-dev.github.io/
 
 ## El kit
 
@@ -44,4 +44,4 @@ El método es de **Lauren Tan** (@poteto), ingeniera de software en SpaceXAI (eq
 - Charla "All Code Is Slop (Except Mine)" (AI Engineer): https://www.youtube.com/watch?v=O_zcc6Xl12g
 - Perfil: https://x.com/poteto
 
-Detalles en [CREDITOS.md](CREDITOS.md) (en portugués). Licencia MIT. Hecho por [INEMA.CLUB](https://inema.club).
+Detalles en [CREDITOS.md](CREDITOS.md) (en portugués). Licencia MIT. Hecho por [ARCKHÉ AI](https://ARCKHÉ AI).

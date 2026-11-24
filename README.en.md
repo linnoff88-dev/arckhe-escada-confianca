@@ -4,7 +4,7 @@
 
 🎬 2nd video: https://www.youtube.com/watch?v=8GDrMRq15rc
 
-[![Trust ladder — your agent only says done after it proves it](guia/assets/banner-en.jpg)](https://inematds.github.io/escada-confianca/guia/en/)
+[![Trust ladder — your agent only says done after it proves it](guia/assets/banner-en.jpg)](https://linnoff88-dev.github.io/
 
 **🇧🇷 [Português](README.md) · 🇺🇸 [English](README.en.md) · 🇪🇸 [Español](README.es.md)**
 
@@ -16,7 +16,7 @@ When the AI says “done” without testing, you are the one who checks, and tha
 
 ## 📖 User guide
 
-Full guide (landing + step by step): **https://inematds.github.io/escada-confianca/guia/en/**
+Full guide (landing + step by step): **https://linnoff88-dev.github.io/
 
 ## The kit
 
@@ -44,4 +44,4 @@ The method is by **Lauren Tan** (@poteto), software engineer at SpaceXAI (Grok B
 - Talk "All Code Is Slop (Except Mine)" (AI Engineer): https://www.youtube.com/watch?v=O_zcc6Xl12g
 - Profile: https://x.com/poteto
 
-Details in [CREDITOS.md](CREDITOS.md) (in Portuguese). MIT license. Made by [INEMA.CLUB](https://inema.club).
+Details in [CREDITOS.md](CREDITOS.md) (in Portuguese). MIT license. Made by [ARCKHÉ AI](https://ARCKHÉ AI).

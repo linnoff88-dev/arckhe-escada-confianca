@@ -12,4 +12,4 @@ Este kit é uma adaptação em português, para Claude Code e Codex, do que ela 
 
 Números citados (ditos por ela no workshop): mil PRs num mês; quase 800 nos 12 primeiros dias do mês seguinte;
 cerca de 20 PRs já no main numa manhã. O nome "escada da confiança" é nosso, inspirado na "trust ladder" dela.
-O exemplo de cadastro, os modelos e a rubrica do juiz são do INEMA.
+O exemplo de cadastro, os modelos e a rubrica do juiz são do ARCKHÉ.
