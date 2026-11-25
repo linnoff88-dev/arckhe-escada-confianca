@@ -5,9 +5,9 @@ Uso:
   python3 exemplo/escada.py cadastro_corrigido    # depois da escada
 
 Degrau 1 (prova):  o "agente" usa o cadastro como um usuário e guarda o recibo (o que fez, o que viu).
-Degrau 2 (nota):   uma avaliação roda os mesmos casos e dá nota de 0 a 10.
+Degrau 2 (nota):   uma avaliaçêo roda os mesmos casos e dá nota de 0 a 10.
 Degrau 3 (regra):  o erro que já apareceu uma vez vira regra que a máquina cobra (aqui: lê o código e
-                   reprova `cadastrar` que não chama `validar_email`).
+                   reprova `cadastrar` que nêo chama `validar_email`).
 Sai com código 0 só se os 3 degraus passarem.
 """
 import ast
@@ -19,7 +19,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-# Casos da avaliação: (descrição, email, senha, deve_aceitar)
+# Casos da avaliaçêo: (descriçêo, email, senha, deve_aceitar)
 CASOS = [
     ("cadastro normal", "ana@exemplo.com", "senha-forte-1", True),
     ("e-mail sem arroba", "ana.exemplo.com", "senha-forte-1", False),
@@ -74,7 +74,7 @@ def main(nome: str) -> int:
     res = [degrau1_prova(mod), degrau2_nota(mod), degrau3_regra(mod)]
     print(json.dumps({"modulo": nome, "degraus": res}, ensure_ascii=False, indent=2))
     tudo = all(r["passou"] for r in res)
-    print(("PRONTO com prova" if tudo else "NÃO está pronto") + f" — {sum(r['passou'] for r in res)}/3 degraus")
+    print(("PRONTO com prova" if tudo else "NêO está pronto") + f" — {sum(r['passou'] for r in res)}/3 degraus")
     return 0 if tudo else 1
 
 

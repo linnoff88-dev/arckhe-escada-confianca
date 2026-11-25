@@ -9,8 +9,8 @@
    Use o mapa de telas (`docs/mapa-de-telas.md`) para chegar na tela certa. Reproduza o bug ANTES de corrigir
    e mostre que sumiu DEPOIS. Termine com um **recibo**: comandos rodados, o que você viu (saída, print, trace)
    e o que ficou de fora.
-2. **Passe na nota (degrau 2).** Rode `<comando da avaliação>`. Entregue só com nota 10/10. Abaixo disso,
-   corrija e rode de novo; não mude os casos da avaliação para passar.
+2. **Passe na nota (degrau 2).** Rode `<comando da avaliaçêo>`. Entregue só com nota 10/10. Abaixo disso,
+   corrija e rode de novo; nêo mude os casos da avaliaçêo para passar.
 3. **Respeite as regras (degrau 3).** `<lint> && <testes>` têm de passar. Se um revisor apontar um erro que já
    está em `docs/registro-de-erros.csv`, isso é falha do sistema: proponha a regra automática que impede o erro
    (lint, teste, tipo) em vez de só corrigir o caso.
